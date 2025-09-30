@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/streamlit-card/streamlit_card-1.0.2.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 8001cd5edd8a6e2db36ee81f37dc645f08f78c21a2ba968403176c68b4f33cb1
 
 build:
@@ -27,11 +27,11 @@ requirements:
 test:
   imports:
     - streamlit_card
+  requires:
+    - pip
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-  requires:
-    - pip
 
 about:
   home: https://github.com/gamcoh/st-card
