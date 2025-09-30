@@ -12,8 +12,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  # s390x is missing streamlit
-  skip: true  # [py<38 or s390x]
+  skip: true  # [py<38]
 
 requirements:
   host:
@@ -30,6 +29,7 @@ test:
     - streamlit_card
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
   requires:
     - pip
 
