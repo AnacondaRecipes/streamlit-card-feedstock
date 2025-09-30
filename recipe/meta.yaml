@@ -1,13 +1,13 @@
 {% set name = "streamlit-card" %}
-{% set version = "0.0.4" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/streamlit-card-{{ version }}.tar.gz
-  sha256: 5fe81450310f1e2b6660c83eb6d82f1a5b671d5d42b5e46b3bc654120c481a2c
+  url: https://pypi.org/packages/source/s/streamlit-card/streamlit_card-1.0.2.tar.gz
+  sha256: 8001cd5edd8a6e2db36ee81f37dc645f08f78c21a2ba968403176c68b4f33cb1
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
